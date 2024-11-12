@@ -33,47 +33,61 @@ This simulator models a detailed out-of-order execution pipeline with perfect ca
 ## Technical Details
 
 ### Input Format
-'''bash
-Copy<PC> <operation type> <dest reg #> <src1 reg #> <src2 reg #>
-'''
+
+```bash
+<PC> <operation type> <dest reg #> <src1 reg #> <src2 reg #>
+```
 Example:
-Copyab120024 0 1 2 3
+
+```bash
+ab120024 0 1 2 3
 ab120028 1 4 1 3
 ab12002c 2 -1 4 7
-Command Line Interface
+```
+### Command Line Interface
+
+```bash
 bashCopy./sim <ROB_SIZE> <IQ_SIZE> <WIDTH> <tracefile>
-Output Format
+```
+
+### Output Format
+
 Per-instruction timing:
+
+```bash
 Copy<seq_no> fu{<op_type>} src{<src1>,<src2>} dst{<dst>} 
 FE{<begin-cycle>,<duration>} DE{...} RN{...} RR{...} DI{...} IS{...} EX{...} WB{...} RT{...}
+```
+
 Final Statistics:
 
-Dynamic instruction count
-Total execution cycles
-Instructions per cycle (IPC)
+    - Dynamic instruction count
+    - Total execution cycles
+    - Instructions per cycle (IPC)
 
-Implementation Details
-Pipeline Registers
+## Implementation Details
 
-DE: Fetch to Decode (WIDTH)
-RN: Decode to Rename (WIDTH)
-RR: Rename to Register Read (WIDTH)
-DI: Register Read to Dispatch (WIDTH)
-IQ: Dispatch to Issue (IQ_SIZE)
-Execute List: Issue to Execute (WIDTH*5)
-WB: Execute to Writeback (WIDTH*5)
-ROB: Writeback to Retire (ROB_SIZE)
+### Pipeline Registers
 
-Key Features
+    - DE: Fetch to Decode (WIDTH)
+    - RN: Decode to Rename (WIDTH)
+    - RR: Rename to Register Read (WIDTH)
+    - DI: Register Read to Dispatch (WIDTH)
+    - IQ: Dispatch to Issue (IQ_SIZE)
+    - Execute List: Issue to Execute (WIDTH*5)
+    - WB: Execute to Writeback (WIDTH*5)
+    - ROB: Writeback to Retire (ROB_SIZE)
 
-Register renaming with RMT
-Out-of-order execution
-In-order retirement
-Wake-up and select logic
-Structural hazard handling
-Dynamic scheduling
+### Key Features
 
-Build Instructions
+    - Register renaming with RMT
+    - Out-of-order execution
+    - In-order retirement
+    - Wake-up and select logic
+    - Structural hazard handling
+    - Dynamic scheduling
+
+## Build Instructions
 
 Clone the repository
 Ensure C/C++/Java compiler is installed
@@ -82,13 +96,14 @@ Use provided Makefile to compile
 bashCopymake
 Usage Example
 bashCopy./sim 64 16 2 trace.txt
-Testing Framework
+
+## Testing Framework
 
 Validation runs provided
 Cycle-accurate timing verification
 
 
-Requirements
+## Requirements
 
 C/C++/Java compiler
 Make build system
