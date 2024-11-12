@@ -59,8 +59,8 @@ Copy<seq_no> fu{<op_type>} src{<src1>,<src2>} dst{<dst>}
 FE{<begin-cycle>,<duration>} DE{...} RN{...} RR{...} DI{...} IS{...} EX{...} WB{...} RT{...}
 ```
 
-Final Statistics:
 
+Final Statistics:
     - Dynamic instruction count
     - Total execution cycles
     - Instructions per cycle (IPC)
@@ -68,7 +68,6 @@ Final Statistics:
 ## Implementation Details
 
 ### Pipeline Registers
-
     - DE: Fetch to Decode (WIDTH)
     - RN: Decode to Rename (WIDTH)
     - RR: Rename to Register Read (WIDTH)
@@ -79,8 +78,7 @@ Final Statistics:
     - ROB: Writeback to Retire (ROB_SIZE)
 
 ### Key Features
-
-    - Register renaming with RMT
+- Register renaming with RMT
     - Out-of-order execution
     - In-order retirement
     - Wake-up and select logic
