@@ -83,25 +83,6 @@ ab120028 1 4 1 3
 ab12002c 2 -1 4 7
 ```
 
-## Implementation Notes
-* Perfect branch prediction assumed
-* Perfect cache operation assumed
-* No memory dependencies modeled
-* Implements full pipeline with all hazard handling
-* Maintains cycle-accurate simulation
-* Supports detailed instruction timing analysis
-
-## Project Requirements
-* C/C++ compiler
-* Make build system
-* Input trace files
-
-## Build Instructions
-```bash
-make clean
-make
-```
-
 ## Output Format
 Per-instruction timing:
 
@@ -121,6 +102,25 @@ Final Statistics:
 * Dynamic instruction count
 * Total execution cycles
 * Instructions per cycle (IPC)
+
+## Implementation Notes
+* Perfect branch prediction assumed
+* Perfect cache operation assumed
+* No memory dependencies modeled
+* Implements full pipeline with all hazard handling
+* Maintains cycle-accurate simulation
+* Supports detailed instruction timing analysis
+
+## Project Requirements
+* C/C++ compiler
+* Make build system
+* Input trace files
+
+## Build Instructions
+```bash
+make clean
+make
+```
 
 ## Testing Framework
 
