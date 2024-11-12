@@ -63,6 +63,14 @@ Where:
 * `operation_type`: 0, 1, or 2
 * Register numbers: -1 to 66 (-1 indicates no register)
 
+Example:
+
+```bash
+ab120024 0 1 2 3
+ab120028 1 4 1 3
+ab12002c 2 -1 4 7
+```
+
 ## Performance Metrics
 * Dynamic instruction count
 * Total execution cycles
@@ -89,8 +97,6 @@ make clean
 make
 ```
 
-
-
 ## Output Format
 * Per-instruction timing information
 * Pipeline stage timestamps
@@ -99,84 +105,30 @@ make
 * Execution statistics
 
 
-
-## Technical Details
-
-### Input Format
-
-```bash
-<PC> <operation type> <dest reg #> <src1 reg #> <src2 reg #>
-```
-Example:
-
-```bash
-ab120024 0 1 2 3
-ab120028 1 4 1 3
-ab12002c 2 -1 4 7
-```
-### Command Line Interface
-
-```bash
-bashCopy./sim <ROB_SIZE> <IQ_SIZE> <WIDTH> <tracefile>
-```
-
 ### Output Format
 
 Per-instruction timing:
 
 ```bash
-Copy<seq_no> fu{<op_type>} src{<src1>,<src2>} dst{<dst>} 
+<seq_no> fu{<op_type>} src{<src1>,<src2>} dst{<dst>} 
 FE{<begin-cycle>,<duration>} DE{...} RN{...} RR{...} DI{...} IS{...} EX{...} WB{...} RT{...}
+```
+
+example:
+
+```bash
+5 fu{2} src{15,-1} dst{16} FE{5,1} DE{6,1} RN{7,1} RR{8,1} DI{9,1} IS{10,3} EX{13,5} WB{18,1} RT{19,1}
 ```
 
 Final Statistics:
 
-    - Dynamic instruction count
-    - Total execution cycles
-    - Instructions per cycle (IPC)
-
-## Implementation Details
-
-### Pipeline Registers
-
-    - DE: Fetch to Decode (WIDTH)
-    - RN: Decode to Rename (WIDTH)
-    - RR: Rename to Register Read (WIDTH)
-    - DI: Register Read to Dispatch (WIDTH)
-    - IQ: Dispatch to Issue (IQ_SIZE)
-    - Execute List: Issue to Execute (WIDTH*5)
-    - WB: Execute to Writeback (WIDTH*5)
-    - ROB: Writeback to Retire (ROB_SIZE)
-
-### Key Features
-
-    - Register renaming with RMT
-    - Out-of-order execution
-    - In-order retirement
-    - Wake-up and select logic
-    - Structural hazard handling
-    - Dynamic scheduling
-
-## Build Instructions
-
-Clone the repository
-Ensure C/C++/Java compiler is installed
-Use provided Makefile to compile
-
-bashCopymake
-Usage Example
-bashCopy./sim 64 16 2 trace.txt
+* Dynamic instruction count
+* Total execution cycles
+* Instructions per cycle (IPC)
 
 ## Testing Framework
 
 Validation runs provided
 Cycle-accurate timing verification
-
-
-## Requirements
-
-C/C++/Java compiler
-Make build system
-Standard libraries
 
 
