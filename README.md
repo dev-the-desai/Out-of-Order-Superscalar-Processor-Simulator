@@ -41,6 +41,11 @@ This project implements a detailed simulator for an out-of-order superscalar pro
   * Type 1: 2 cycles
   * Type 2: 5 cycles
 
+### Microarchitectural Overview
+
+<div align="center">
+<img width="800" alt="config supported" src="[https://github.com/user-attachments/assets/1586344b-c055-4326-a633-3b3ee9589d26](https://github.com/user-attachments/assets/f3ffe39d-d696-4cee-93bb-fb543b4ac061)">
+</div>
 
 ## Simulator Usage
 ```bash
