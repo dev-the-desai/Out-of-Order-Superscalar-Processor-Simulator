@@ -124,8 +124,8 @@ make
 
 ## Testing Framework
 
-Prepare trace files in correct format
-Run simulator with desired configuration
-Analyze output metrics and instruction contents
+* Prepare trace files in correct format
+* Run simulator with desired configuration
+* Analyze output metrics and instruction contents
 
 
