@@ -3,32 +3,95 @@ A cycle-accurate simulator for an out-of-order superscalar processor that models
 
 ## Project Overview
 
-This simulator models a detailed out-of-order execution pipeline with perfect caches and branch prediction. It focuses on data dependencies through registers, pipeline stages, and structural hazards in the Issue Queue and Reorder Buffer.
+This project implements a detailed simulator for an out-of-order superscalar processor that can fetch and issue N instructions per cycle. The simulator focuses on modeling data dependencies, pipeline stages, and structural hazards through the Issue Queue and Reorder Buffer.
 
 ## Key Implementation Features
 
-1. Microarchitectural Components
-    - Register Files: 67 architectural registers (R0-R66)
-    - Function Units: Configurable number of universal pipelined FUs
-    - Issue Queue: Dynamic size configuration
-    - Reorder Buffer: Dynamic size configuration
-    - Pipeline Width: Configurable superscalar width
+### Processor Parameters
+* `ROB_SIZE`: Number of Reorder Buffer entries
+* `IQ_SIZE`: Number of Issue Queue entries
+* `WIDTH`: Superscalar width (instructions per cycle)
+* 67 architectural registers (R0-R66)
 
-2. Pipeline Stages
-    - Fetch: Reads instructions from trace file
-    - Decode: Initial instruction processing
-    - Rename: Register renaming and ROB allocation
-    - Register Read: Source operand readiness check
-    - Dispatch: Issue queue management
-    - Issue: Out-of-order instruction issuing
-    - Execute: Pipelined execution with varying latencies
-    - Writeback: Result writeback handling
-    - Retire: In-order instruction retirement
+### Execution Units
+* WIDTH universal pipelined function units
+* Operation types with different latencies:
+  * Type 0: 1 cycle
+  * Type 1: 2 cycles
+  * Type 2: 5 cycles
 
-3. Instruction Types
-    - Type 0: Single cycle latency
-    - Type 1: Two cycle latency
-    - Type 2: Five cycle latency
+## Simulator Usage
+```bash
+./sim <ROB_SIZE> <IQ_SIZE> <WIDTH> <tracefile>
+```
+
+Example:
+```bash
+./sim 64 32 4 trace.txt
+```
+
+## Input Format
+
+Traces follow the format:
+```
+<PC> <operation_type> <dest_reg> <src1_reg> <src2_reg>
+```
+Where:
+* `PC`: Program counter (hex)
+* `operation_type`: 0, 1, or 2
+* Register numbers: -1 to 66 (-1 indicates no register)
+
+## Performance Metrics
+* Dynamic instruction count
+* Total execution cycles
+* Instructions Per Cycle (IPC)
+* Per-instruction timing details
+* Pipeline stage statistics
+
+## Project Requirements
+* C/C++ compiler
+* Make build system
+* Input trace files
+
+## Build Instructions
+```bash
+make clean
+make
+```
+
+## Implementation Notes
+* Perfect branch prediction assumed
+* Perfect cache operation assumed
+* No memory dependencies modeled
+* Implements full pipeline with all hazard handling
+* Maintains cycle-accurate simulation
+* Supports detailed instruction timing analysis
+
+## Output Format
+* Per-instruction timing information
+* Pipeline stage timestamps
+* Overall performance metrics
+* Configuration details
+* Execution statistics
+
+1. Pipeline Stages
+   * Fetch/Decode/Rename
+   * Register Read/Dispatch
+   * Issue/Execute
+   * Writeback/Retire
+   * Support for multiple instructions per cycle
+
+2. Dynamic Scheduling Components
+   * Reorder Buffer (ROB) for in-order retirement
+   * Issue Queue (IQ) for out-of-order execution
+   * Register renaming with Rename Map Table
+   * Universal pipelined function units
+
+3. Architectural Features
+   * Configurable superscalar width
+   * Multiple function units with varying latencies
+   * Register dependency tracking
+   * In-order fetch and retire, out-of-order execution
 
 ## Technical Details
 
@@ -59,8 +122,8 @@ Copy<seq_no> fu{<op_type>} src{<src1>,<src2>} dst{<dst>}
 FE{<begin-cycle>,<duration>} DE{...} RN{...} RR{...} DI{...} IS{...} EX{...} WB{...} RT{...}
 ```
 
-
 Final Statistics:
+
     - Dynamic instruction count
     - Total execution cycles
     - Instructions per cycle (IPC)
@@ -68,6 +131,7 @@ Final Statistics:
 ## Implementation Details
 
 ### Pipeline Registers
+
     - DE: Fetch to Decode (WIDTH)
     - RN: Decode to Rename (WIDTH)
     - RR: Rename to Register Read (WIDTH)
@@ -78,7 +142,8 @@ Final Statistics:
     - ROB: Writeback to Retire (ROB_SIZE)
 
 ### Key Features
-- Register renaming with RMT
+
+    - Register renaming with RMT
     - Out-of-order execution
     - In-order retirement
     - Wake-up and select logic
@@ -106,4 +171,5 @@ Cycle-accurate timing verification
 C/C++/Java compiler
 Make build system
 Standard libraries
+
 
