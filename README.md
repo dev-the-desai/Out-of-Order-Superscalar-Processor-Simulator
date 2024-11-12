@@ -7,6 +7,27 @@ This project implements a detailed simulator for an out-of-order superscalar pro
 
 ## Key Implementation Features
 
+1. Pipeline Stages
+   * Fetch/Decode/Rename
+   * Register Read/Dispatch
+   * Issue/Execute
+   * Writeback/Retire
+   * Support for multiple instructions per cycle
+
+2. Dynamic Scheduling Components
+   * Reorder Buffer (ROB) for in-order retirement
+   * Issue Queue (IQ) for out-of-order execution
+   * Register renaming with Rename Map Table
+   * Universal pipelined function units
+
+3. Architectural Features
+   * Configurable superscalar width
+   * Multiple function units with varying latencies
+   * Register dependency tracking
+   * In-order fetch and retire, out-of-order execution
+
+## Technical Details
+
 ### Processor Parameters
 * `ROB_SIZE`: Number of Reorder Buffer entries
 * `IQ_SIZE`: Number of Issue Queue entries
@@ -74,24 +95,7 @@ make
 * Configuration details
 * Execution statistics
 
-1. Pipeline Stages
-   * Fetch/Decode/Rename
-   * Register Read/Dispatch
-   * Issue/Execute
-   * Writeback/Retire
-   * Support for multiple instructions per cycle
 
-2. Dynamic Scheduling Components
-   * Reorder Buffer (ROB) for in-order retirement
-   * Issue Queue (IQ) for out-of-order execution
-   * Register renaming with Rename Map Table
-   * Universal pipelined function units
-
-3. Architectural Features
-   * Configurable superscalar width
-   * Multiple function units with varying latencies
-   * Register dependency tracking
-   * In-order fetch and retire, out-of-order execution
 
 ## Technical Details
 
