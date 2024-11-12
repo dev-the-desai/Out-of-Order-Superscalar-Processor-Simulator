@@ -8,32 +8,30 @@ This simulator models a detailed out-of-order execution pipeline with perfect ca
 ## Key Implementation Features
 
 1. Microarchitectural Components
-
-- Register Files: 67 architectural registers (R0-R66)
-- Function Units: Configurable number of universal pipelined FUs
-- Issue Queue: Dynamic size configuration
-- Reorder Buffer: Dynamic size configuration
-- Pipeline Width: Configurable superscalar width
+    - Register Files: 67 architectural registers (R0-R66)
+    - Function Units: Configurable number of universal pipelined FUs
+    - Issue Queue: Dynamic size configuration
+    - Reorder Buffer: Dynamic size configuration
+    - Pipeline Width: Configurable superscalar width
 
 2. Pipeline Stages
-
-- Fetch: Reads instructions from trace file
-- Decode: Initial instruction processing
-- Rename: Register renaming and ROB allocation
-- Register Read: Source operand readiness check
-- Dispatch: Issue queue management
-- Issue: Out-of-order instruction issuing
-- Execute: Pipelined execution with varying latencies
-- Writeback: Result writeback handling
-- Retire: In-order instruction retirement
+    - Fetch: Reads instructions from trace file
+    - Decode: Initial instruction processing
+    - Rename: Register renaming and ROB allocation
+    - Register Read: Source operand readiness check
+    - Dispatch: Issue queue management
+    - Issue: Out-of-order instruction issuing
+    - Execute: Pipelined execution with varying latencies
+    - Writeback: Result writeback handling
+    - Retire: In-order instruction retirement
 
 3. Instruction Types
+    - Type 0: Single cycle latency
+    - Type 1: Two cycle latency
+    - Type 2: Five cycle latency
 
-- Type 0: Single cycle latency
-- Type 1: Two cycle latency
-- Type 2: Five cycle latency
+## Technical Details
 
-Technical Details
 Input Format
 Copy<PC> <operation type> <dest reg #> <src1 reg #> <src2 reg #>
 Example:
@@ -86,19 +84,11 @@ Testing Framework
 
 Validation runs provided
 Cycle-accurate timing verification
-Performance metrics comparison
-Gradescope auto-grading support
 
-Performance Considerations
-
-O3 optimization support
-Debugging symbols for development
-Efficiency considerations for large traces
-Runtime optimization guidelines
 
 Requirements
 
 C/C++/Java compiler
 Make build system
 Standard libraries
-Linux/Unix environment
+
