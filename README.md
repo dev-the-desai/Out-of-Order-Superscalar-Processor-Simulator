@@ -63,7 +63,7 @@ Example:
 * Instructions Per Cycle (IPC)
 * Per-instruction timing details
 * Pipeline stage statistics
-* 
+
 ## Input Format
 
 Traces follow the format:
