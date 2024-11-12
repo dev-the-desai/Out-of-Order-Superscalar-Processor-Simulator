@@ -43,7 +43,7 @@ This project implements a detailed simulator for an out-of-order superscalar pro
 
 ### Microarchitectural Overview
 <div align="center">
-<img width="800" alt="config supported" src="https://github.com/user-attachments/assets/35a37e6e-9079-4ad7-87b6-a3cc366692a7">
+<img width="650" alt="config supported" src="https://github.com/user-attachments/assets/35a37e6e-9079-4ad7-87b6-a3cc366692a7">
 </div>
 
 ## Simulator Usage
