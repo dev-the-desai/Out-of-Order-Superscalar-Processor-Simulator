@@ -32,8 +32,10 @@ This simulator models a detailed out-of-order execution pipeline with perfect ca
 
 ## Technical Details
 
-Input Format
+### Input Format
+'''bash
 Copy<PC> <operation type> <dest reg #> <src1 reg #> <src2 reg #>
+'''
 Example:
 Copyab120024 0 1 2 3
 ab120028 1 4 1 3
