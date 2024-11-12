@@ -41,10 +41,6 @@ This project implements a detailed simulator for an out-of-order superscalar pro
   * Type 1: 2 cycles
   * Type 2: 5 cycles
 
-### Microarchitectural Overview
-<div align="center">
-<img width="650" alt="config supported" src="https://github.com/user-attachments/assets/35a37e6e-9079-4ad7-87b6-a3cc366692a7">
-</div>
 
 ## Simulator Usage
 ```bash
@@ -74,6 +70,14 @@ Where:
 * Per-instruction timing details
 * Pipeline stage statistics
 
+## Implementation Notes
+* Perfect branch prediction assumed
+* Perfect cache operation assumed
+* No memory dependencies modeled
+* Implements full pipeline with all hazard handling
+* Maintains cycle-accurate simulation
+* Supports detailed instruction timing analysis
+
 ## Project Requirements
 * C/C++ compiler
 * Make build system
@@ -85,13 +89,7 @@ make clean
 make
 ```
 
-## Implementation Notes
-* Perfect branch prediction assumed
-* Perfect cache operation assumed
-* No memory dependencies modeled
-* Implements full pipeline with all hazard handling
-* Maintains cycle-accurate simulation
-* Supports detailed instruction timing analysis
+
 
 ## Output Format
 * Per-instruction timing information
