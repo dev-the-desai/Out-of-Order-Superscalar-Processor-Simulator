@@ -25,6 +25,7 @@ This project implements a detailed simulator for an out-of-order superscalar pro
    * Multiple function units with varying latencies
    * Register dependency tracking
    * In-order fetch and retire, out-of-order execution
+   * 67 architectural registers (R0-R66)
 
 ## Technical Details
 
@@ -32,7 +33,6 @@ This project implements a detailed simulator for an out-of-order superscalar pro
 * `ROB_SIZE`: Number of Reorder Buffer entries
 * `IQ_SIZE`: Number of Issue Queue entries
 * `WIDTH`: Superscalar width (instructions per cycle)
-* 67 architectural registers (R0-R66)
 
 ### Execution Units
 * WIDTH universal pipelined function units
