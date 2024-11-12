@@ -2,32 +2,33 @@
 A cycle-accurate simulator for an out-of-order superscalar processor that models dynamic instruction scheduling with configurable pipeline width, issue queue size, and reorder buffer capacity.
 
 This simulator models a detailed out-of-order execution pipeline with perfect caches and branch prediction. It focuses on data dependencies through registers, pipeline stages, and structural hazards in the Issue Queue and Reorder Buffer.
-Key Features
-Microarchitectural Components
 
-Register Files: 67 architectural registers (R0-R66)
-Function Units: Configurable number of universal pipelined FUs
-Issue Queue: Dynamic size configuration
-Reorder Buffer: Dynamic size configuration
-Pipeline Width: Configurable superscalar width
+## Key Features
+### Microarchitectural Components
 
-Pipeline Stages
+- Register Files: 67 architectural registers (R0-R66)
+- Function Units: Configurable number of universal pipelined FUs
+- Issue Queue: Dynamic size configuration
+- Reorder Buffer: Dynamic size configuration
+- Pipeline Width: Configurable superscalar width
 
-Fetch: Reads instructions from trace file
-Decode: Initial instruction processing
-Rename: Register renaming and ROB allocation
-Register Read: Source operand readiness check
-Dispatch: Issue queue management
-Issue: Out-of-order instruction issuing
-Execute: Pipelined execution with varying latencies
-Writeback: Result writeback handling
-Retire: In-order instruction retirement
+### Pipeline Stages
 
-Instruction Types
+- Fetch: Reads instructions from trace file
+- Decode: Initial instruction processing
+- Rename: Register renaming and ROB allocation
+- Register Read: Source operand readiness check
+- Dispatch: Issue queue management
+- Issue: Out-of-order instruction issuing
+- Execute: Pipelined execution with varying latencies
+- Writeback: Result writeback handling
+- Retire: In-order instruction retirement
 
-Type 0: Single cycle latency
-Type 1: Two cycle latency
-Type 2: Five cycle latency
+### Instruction Types
+
+- Type 0: Single cycle latency
+- Type 1: Two cycle latency
+- Type 2: Five cycle latency
 
 Technical Details
 Input Format
