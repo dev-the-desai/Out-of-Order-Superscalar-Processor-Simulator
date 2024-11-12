@@ -57,6 +57,13 @@ Example:
 ./sim 64 32 4 trace.txt
 ```
 
+## Performance Metrics
+* Dynamic instruction count
+* Total execution cycles
+* Instructions Per Cycle (IPC)
+* Per-instruction timing details
+* Pipeline stage statistics
+* 
 ## Input Format
 
 Traces follow the format:
@@ -75,13 +82,6 @@ ab120024 0 1 2 3
 ab120028 1 4 1 3
 ab12002c 2 -1 4 7
 ```
-
-## Performance Metrics
-* Dynamic instruction count
-* Total execution cycles
-* Instructions Per Cycle (IPC)
-* Per-instruction timing details
-* Pipeline stage statistics
 
 ## Implementation Notes
 * Perfect branch prediction assumed
@@ -103,15 +103,6 @@ make
 ```
 
 ## Output Format
-* Per-instruction timing information
-* Pipeline stage timestamps
-* Overall performance metrics
-* Configuration details
-* Execution statistics
-
-
-### Output Format
-
 Per-instruction timing:
 
 ```bash
@@ -133,7 +124,7 @@ Final Statistics:
 
 ## Testing Framework
 
-Validation runs provided
-Cycle-accurate timing verification
+* Validation runs provided
+* Cycle-accurate timing verification
 
 
