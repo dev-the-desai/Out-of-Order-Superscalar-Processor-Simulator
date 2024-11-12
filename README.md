@@ -124,7 +124,8 @@ make
 
 ## Testing Framework
 
-* Validation runs provided
-* Cycle-accurate timing verification
+Prepare trace files in correct format
+Run simulator with desired configuration
+Analyze output metrics and instruction contents
 
 
